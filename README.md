@@ -13,10 +13,13 @@ This project explores the Hadamard product, an element-wise multiplication of tw
 - Non-Shared, Vector Size (4096x4096), Thread Block (32x32).
 ![image](https://github.com/user-attachments/assets/cc6ad8df-2c77-4a88-9be0-79c42d73103d)
 
+![Screenshot_20250221_202208](https://github.com/user-attachments/assets/af359fc9-83c9-45fc-b6bc-b5664f9fbd4d)
+
 - Shared, Vector Size (4096x4096), Thread Block (32x32).
-![image](https://github.com/user-attachments/assets/f16a6e98-a659-4249-9050-2349ac20380b)
 
+![Screenshot_20250221_201926](https://github.com/user-attachments/assets/d509352b-42f1-4ab9-9c1a-a81e6208452a)
 
+![Screenshot_20250221_202059](https://github.com/user-attachments/assets/5b9bc016-a1b9-4d13-93af-f40c084ea22d)
 
 
 
