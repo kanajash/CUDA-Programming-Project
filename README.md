@@ -6,9 +6,16 @@ This project explores the Hadamard product, an element-wise multiplication of tw
 
 ## Program Output with Execution Time & Correctness Check 
 ### A. C Program
+-C program, Vector size is 4096x4096
+![image](https://github.com/user-attachments/assets/b51a50e4-cb93-427a-b3e5-092291f81006)
+
 ### B. CUDA Program 
 - Non-Shared, Vector Size (4096x4096), Thread Block (32x32).
 ![image](https://github.com/user-attachments/assets/cc6ad8df-2c77-4a88-9be0-79c42d73103d)
+
+- Shared, Vector Size (4096x4096), Thread Block (32x32).
+![image](https://github.com/user-attachments/assets/f16a6e98-a659-4249-9050-2349ac20380b)
+
 
 
 
