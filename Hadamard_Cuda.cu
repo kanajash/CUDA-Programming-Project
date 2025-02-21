@@ -109,7 +109,7 @@ int main()
 
   printf("Array Dimension: %lux%lu\n", ARRAY_DIM, ARRAY_DIM);
   printf("Thread Block Dimension: %lux%lu\n", threadDimBlock, threadDimBlock);
-  printf("Total error count: %lu", errCount);
+  printf("Total error count: %lu\n", errCount);
 
   // Free memory
   cudaFree(X);
