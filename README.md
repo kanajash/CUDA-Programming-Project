@@ -61,7 +61,7 @@ in the size of 2048, there is an upward trend in execution times. as seen from f
 
 
 ## Links 
-1. Youtube Link
+1. Youtube Link: https://youtu.be/xAKhL31pI6c
 2. Additional Resources (Docs): https://docs.google.com/document/d/1QE3GzmY2PIk5JYr5eSgXj4tQDgYsYG_G-rJZWC_iVQA/edit
 
 
