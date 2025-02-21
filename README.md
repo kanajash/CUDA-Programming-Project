@@ -49,12 +49,16 @@ Furthermore it is observed that the thread block configuration is crucial for ma
 For example on the vector size of 1024, the smallest size among the three, the 8x8 thread block size is the fastest withe the time of 26,200ns. There is also an obervation that the increase number of threads in the context of larger blocks did not significantly affect the performance of smaller matrix sizes  this maybe due to higher thread overhead and synchronization under smaller workloads 
 
 
-in the size of 2048, there is an upward trend in execution times. as seen from figure 
+in the size of 2048, there is an upward trend in execution times. the larger blocks handles the larger matrices efficiently than the smaller value, meaning as the block size increases it reduces the execution time gradually. This implies that the mid-range matrix sizes has better parallelism and has better memory access patterns 
+
+
+
+Therefore, smaller thread blocks perform better with small matrices (1024) , while larger blocks are favorable for the medium sized matrices such as 2048. For a larger matrix such as 4096, the thread block size does not significantly affect the execution time. 
 
   
-  
-  Balancing these factors is key to achieving the best performance. Overall, the shared memory strategy not only minimizes latency but also leverages on-chip data reuse to deliver significant speedups, making it a highly effective optimization for parallel operations like the Hadamard product.
+This just suggests that it should be considered that in impementing these configurations, not only the thread block size is to be thought out but also the compatible matrix size. Balancing these factors is key to achieving the best performance. Overall, the shared memory strategy not only minimizes latency but also leverages on-chip data reuse to deliver significant speedups, making it a highly effective optimization for parallel operations like the Hadamard product.
 </p>
+
 
 
 
