@@ -38,6 +38,19 @@ This project explores the Hadamard product, an element-wise multiplication of tw
 
 ![Screenshot_20250221_201656](https://github.com/user-attachments/assets/94e6e770-661c-437e-9ce6-26f954f347b6)
 
+<p align="justify">
+From a glance, there is a clear performance difference between the non-shared and shared memory implementations as seen from both figures 2 and 3. Knowing the inceot of shared memory using global memory, the shared memory approach benefits from **improved memory coalescing, reduced global memory traffic, and efficient data reusability.** In the non-shared version, every thread must individually fetch data from global memory, this is a process that can quickly become a bottleneck as the matrix size increases. With shared memory, however, data is loaded once per block and then reused by all threads in that block, drastically reducing the number of slow global memory accesses.
+  
+</p>
+
+<p align="justify">
+Furthermore it is observed that the thread block configuration is crucial for maximizing performance. Optimal block sizes enhance GPU occupancy and ensure that the limited shared memory is used efficiently. While larger blocks may lead to improved parallelism and lower overhead, they can also strain shared memory resources if not properly managed. Balancing these factors is key to achieving the best performance. Overall, the shared memory strategy not only minimizes latency but also leverages on-chip data reuse to deliver significant speedups, making it a highly effective optimization for parallel operations like the Hadamard product.
+</p>
+
+
+
+
+
 ## Links 
 1. Youtube Link
 2. Additional Resources (Docs): https://docs.google.com/document/d/1QE3GzmY2PIk5JYr5eSgXj4tQDgYsYG_G-rJZWC_iVQA/edit
