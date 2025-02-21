@@ -5,8 +5,8 @@ This project explores the Hadamard product, an element-wise multiplication of tw
 
 
 ## Program Output with Execution Time & Correctness Check 
-### C
-### CUDA
+### A. C Program
+### B. CUDA Program 
 - Non-Shared, Vector Size (4096x4096), Thread Block (32x32).
 ![image](https://github.com/user-attachments/assets/cc6ad8df-2c77-4a88-9be0-79c42d73103d)
 
@@ -28,3 +28,4 @@ Figure 2.0. Total Execution Time for Non-Shared
 
 Figure 3.0. Total Execution Time For Shared 
 
+![image](https://github.com/user-attachments/assets/0db0c843-2fc4-4042-8b02-02f94f7ff42a)
