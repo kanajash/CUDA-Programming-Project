@@ -23,10 +23,6 @@ This project explores the Hadamard product, an element-wise multiplication of tw
 
 
 
-## Average Execution Time 
-![image](https://github.com/user-attachments/assets/31fe8ae7-53c6-4959-874e-c9ef74c0eccb)
-
-
 ## Comparative Analysis
 
 - Figure 1.0. Average Kernel Execution Time for Shared 
@@ -41,4 +37,9 @@ This project explores the Hadamard product, an element-wise multiplication of tw
 - Figure 3.0. Total Execution Time For Shared 
 
 ![Screenshot_20250221_201656](https://github.com/user-attachments/assets/94e6e770-661c-437e-9ce6-26f954f347b6)
+
+## Links 
+1. Youtube Link
+2. Additional Resources (Docs): https://docs.google.com/document/d/1QE3GzmY2PIk5JYr5eSgXj4tQDgYsYG_G-rJZWC_iVQA/edit
+
 
