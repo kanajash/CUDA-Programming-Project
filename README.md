@@ -60,12 +60,33 @@ This just suggests that it should be considered that in impementing these config
 </p>
 
 
+One of the problem encountered when implementing the shared memory for the CUDA kernel was that it ran slower than the non-shared version which should not be the case because according to Nvidia's shared memory article, a shared memory implementation should run much faster than it non-shared counterpart. A possible explanation for this is the bank conflict, it is when a half warp (16 threads) tries to load/store data from or to the same bank. At first the implementation to store an element to a 2D array was `sh_X[threadIdx.x][threadIdx.y]` which at first it made sense from the perspective of accessing a 2d array with the format of `arr[row][col]`. Since in a thread the fastest varying or the the one that changes a lot as index increments is x (row), instead of the y (column) with the table below we can see as to why `sh_X[threadIdx.x][threadIdx.y]` indexing schemee would cause the bank conflict, since increments will vary first with `threadIdx.x` therefore incrementing its row first hitting multiple elements in bank0 until half warp so changing the 2D array indexing scheme to `sh_X[threadIdx.y][threadIdx.x]` removed the bank conflict.
 
-
+       bank0 .... bank15
+row 0  [ 0   .... 15  ]
+    1  [ 16  .... 31  ]
+    2  [ 32  .... 47  ]
+    3  [ 48  .... 63  ]
+    4  [ 64  .... 79  ]
+    5  [ 80  .... 95  ]
+    6  [ 96  .... 111 ]
+    7  [ 112 .... 127 ]
+    8  [ 128 .... 143 ]
+    9  [ 144 .... 159 ]
+    10 [ 160 .... 175 ]
+    11 [ 176 .... 191 ]
+    12 [ 192 .... 207 ]
+    13 [ 208 .... 223 ]
+    14 [ 224 .... 239 ]
+    15 [ 240 .... 255 ]
+       col 0 .... col 15
+Table from: https://stackoverflow.com/questions/3841877/what-is-a-bank-conflict-doing-cuda-opencl-programming
 
 
 ## Links 
 1. Youtube Link: https://youtu.be/xAKhL31pI6c
 2. Additional Resources (Docs): https://docs.google.com/document/d/1QE3GzmY2PIk5JYr5eSgXj4tQDgYsYG_G-rJZWC_iVQA/edit
+3. Shared Memory: https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/
+4. https://stackoverflow.com/questions/3841877/what-is-a-bank-conflict-doing-cuda-opencl-programming
 
 
