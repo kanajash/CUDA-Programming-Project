@@ -39,12 +39,21 @@ This project explores the Hadamard product, an element-wise multiplication of tw
 ![Screenshot_20250221_201656](https://github.com/user-attachments/assets/94e6e770-661c-437e-9ce6-26f954f347b6)
 
 <p align="justify">
-From a glance, there is a clear performance difference between the non-shared and shared memory implementations as seen from both figures 2 and 3. Knowing the inceot of shared memory using global memory, the shared memory approach benefits from **improved memory coalescing, reduced global memory traffic, and efficient data reusability.** In the non-shared version, every thread must individually fetch data from global memory, this is a process that can quickly become a bottleneck as the matrix size increases. With shared memory, however, data is loaded once per block and then reused by all threads in that block, drastically reducing the number of slow global memory accesses.
+From a glance, there is a clear performance difference between the non-shared and shared memory implementations as seen from both figures 2 and 3. Knowing the inceot of shared memory using global memory, the shared memory approach benefits from improved memory coalescing, reduced global memory traffic, and efficient data reusability. In the non-shared version, every thread must individually fetch data from global memory, this is a process that can quickly become a bottleneck as the matrix size increases. With shared memory, however, data is loaded once per block and then reused by all threads in that block, drastically reducing the number of slow global memory accesses.
   
 </p>
 
 <p align="justify">
-Furthermore it is observed that the thread block configuration is crucial for maximizing performance. Optimal block sizes enhance GPU occupancy and ensure that the limited shared memory is used efficiently. While larger blocks may lead to improved parallelism and lower overhead, they can also strain shared memory resources if not properly managed. Balancing these factors is key to achieving the best performance. Overall, the shared memory strategy not only minimizes latency but also leverages on-chip data reuse to deliver significant speedups, making it a highly effective optimization for parallel operations like the Hadamard product.
+Furthermore it is observed that the thread block configuration is crucial for maximizing performance. Optimal block sizes enhance GPU occupancy and ensure that the limited shared memory is used efficiently. While larger blocks may lead to improved parallelism and lower overhead, they can also strain shared memory resources if not properly managed. Comparing different execution times from differect vector sizes and thread block sizes help us unserdtand the importance of picking the right size and knowing how the process works. 
+
+For example on the vector size of 1024, the smallest size among the three, the 8x8 thread block size is the fastest withe the time of 26,200ns. There is also an obervation that the increase number of threads in the context of larger blocks did not significantly affect the performance of smaller matrix sizes  this maybe due to higher thread overhead and synchronization under smaller workloads 
+
+
+in the size of 2048, there is an upward trend in execution times. as seen from figure 
+
+  
+  
+  Balancing these factors is key to achieving the best performance. Overall, the shared memory strategy not only minimizes latency but also leverages on-chip data reuse to deliver significant speedups, making it a highly effective optimization for parallel operations like the Hadamard product.
 </p>
 
 
